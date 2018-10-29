@@ -39,8 +39,10 @@
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES + ABBREVIATIONS + CONSTANTS + SYMBOLS
 %----------------------------------------------------------------------------------------
-
+\begin{spacing}{1.2}
 \tableofcontents
+\end{spacing}
+%\tableofcontents
 \addcontentsline{toc}{chapter}{Contents}
 \cleardoublepage
 \begin{spacing}{0.5}
@@ -70,7 +72,7 @@
 \vspace*{\fill}
 \textit{Dedicated to \ldots}
 \vspace*{\fill}
-
+\cleardoublepage
 
 %----------------------------------------------------------------------------------------
 %	CHAPTERS
@@ -80,14 +82,19 @@
 \pagenumbering{arabic} %numbering in roman numbers
 
 \include{Chapters/01_Introduction}
-\newpage
-Hello pèople I am trying GitHub!!
+\cleardoublepage
 \include{Chapters/02_Literature_review}
+\cleardoublepage
 \include{Chapters/03_Goals}
+\cleardoublepage
 \include{Chapters/04_Methodology}
+\cleardoublepage
 \include{Chapters/05_Results}
+\cleardoublepage
 \include{Chapters/06_Conclusions}
+\cleardoublepage
 \include{Chapters/07_Future_lines}
+\cleardoublepage
 
 
 %----------------------------------------------------------------------------------------
@@ -95,7 +102,7 @@ Hello pèople I am trying GitHub!!
 %----------------------------------------------------------------------------------------
 
 \printbibliography[heading=bibintoc,title={BIBLIOGRAPHY}] %adds bibliography to the toc, sets title of the section to BIBLIOGRAPHY
-
+\cleardoublepage
 
 %----------------------------------------------------------------------------------------
 %	APPENDICES
@@ -104,5 +111,6 @@ Hello pèople I am trying GitHub!!
 \appendix % Cue to tell LaTeX that the following "chapters" are Appendices
 
 \include{Appendix/Appendix_A}
+\cleardoublepage
 
 \end{document}
