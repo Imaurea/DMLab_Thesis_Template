@@ -1,0 +1,106 @@
+%-----------------------------------------------------------
+%--------- Version 1.0 - David Santamaria - Year 2017/2018
+%--------- Version 2.0 - Aurea Iñurritegui - Year 2018/2019
+%-----------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	Definition of document class and packages upload
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,twoside,12pt]{book}
+
+\input{Configuration/Configuration} % Upload document configuration 
+
+
+%----------------------------------------------------------------------------------------
+%	FRONT MATTER PAGES
+%----------------------------------------------------------------------------------------
+
+\input{Frontmatter/Thesis_Info} %We upload all the Thesis information file
+
+\begin{document}
+
+\mainmatter %shows chapter numbers. If we don't want chapters to appera use \fontmatter
+
+\include{Frontmatter/Coverpage}
+
+\include{Frontmatter/Undercoverpage}
+
+\include{Frontmatter/Authorship}
+
+%\include{Frontmatter/Dedication}
+
+\include{Frontmatter/Abstract}
+
+\include{Frontmatter/Acknowledgments}
+
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES + ABBREVIATIONS + CONSTANTS + SYMBOLS
+%----------------------------------------------------------------------------------------
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Contents}
+\cleardoublepage
+\begin{spacing}{0.5}
+\listoffigures
+\end{spacing}
+\addcontentsline{toc}{chapter}{List of Figures}
+\cleardoublepage
+\begin{spacing}{0.5}
+\listoftables
+\end{spacing}
+\addcontentsline{toc}{chapter}{List of Tables}
+
+\listoftodos %utili para saber las cosas que faltan
+
+\cleardoublepage
+%Abbreviations 
+
+\include{Frontmatter/Constants}
+\include{Frontmatter/List_of_symbols}
+
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty}
+\vspace*{\fill}
+\textit{Dedicated to \ldots}
+\vspace*{\fill}
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\pagenumbering{arabic} %numbering in roman numbers
+
+\include{Chapters/01_Introduction}
+\include{Chapters/02_Literature_review}
+\include{Chapters/03_Goals}
+\include{Chapters/04_Methodology}
+\include{Chapters/05_Results}
+\include{Chapters/06_Conclusions}
+\include{Chapters/07_Future_lines}
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc,title={BIBLIOGRAPHY}] %adds bibliography to the toc, sets title of the section to BIBLIOGRAPHY
+
+
+%----------------------------------------------------------------------------------------
+%	APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+\include{Appendix/Appendix_A}
+
+\end{document}

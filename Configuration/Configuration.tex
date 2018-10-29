@@ -1,0 +1,225 @@
+% ****************************************************************************************************
+%
+% DOCUMENT CONFIGURATION AND PACKAGES
+%
+% ****************************************************************************************************
+
+% LANGUAGE
+% ----------------------
+\usepackage[english]{babel}
+%\usepackage[spanish,es-tabla]{babel}
+%\selectlanguage{spanish}
+
+\usepackage[T1]{fontenc} % para colocar acentos y simbolos en español, p.e.: la �
+\usepackage[utf8]{inputenc} % para colocar acentos y simbolos en espa�ol, p.e.: la �
+%\usepackage[latin1]{inputenc} % Caracteres con acentos.
+
+
+% SYMBOLS
+% ----------------------
+\usepackage{latexsym} 
+\usepackage{latexsym} 
+\usepackage{units} % Units
+\usepackage{siunitx} % SI units
+\usepackage{amssymb} 
+\usepackage{amsfonts}
+\usepackage{eurosym} % € symbol
+\usepackage{wasysym} %Additional math symbols
+\usepackage{esvect} %vectors
+
+\usepackage{tikz} %to write numbers/letters inside a circle. Use \circled{}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+% LINE SPACING
+% ----------------------
+\usepackage{setspace} % to adjust interlineate
+%\setlength{\parskip}{5mm} %separación de una linea después de un punto y a parte. 5mm equivale a una linea escrita.
+\renewcommand{\baselinestretch}{1.5} %interlineado del documento
+
+\def\wl{\par \vspace{\baselineskip}} %when using \wl, space left after the text... similar to \\
+
+% DOCUEMNT MARGINS
+% ----------------------
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2cm,marginparsep=0cm,headsep=0.7cm,showframe]{geometry}
+
+%\usepackage{anysize} % Soporte para el comando marginsize
+%\marginsize{3.5cm}{2.5cm}{2cm}{2cm} %izq, dcha, arriba, abajo
+
+\usepackage{indentfirst} %for indentation of paragraphs
+\usepackage{scrextend} % for indentation of a paragraph
+
+
+% PAGESTYLE HEAD AND FOOT
+% ----------------------
+% with 2 side documents
+% R=Right ; C=Centre ; L=Left 
+% O=Odd (Impar) ; E=Even (Par)
+
+\usepackage{fancyhdr} % para dar formato al documento
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{} % clear all fields
+
+% Head
+%\fancyhead[RO,LE]{\chaptertitlename}
+\fancyhead[RO]{\rightmark} %
+\fancyhead[LE]{\leftmark} %
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Page foot
+\fancyfoot[RO,LE]{\thepage}
+\fancyfoot[RE]{\titlename}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+% First page of the chapter
+% To apply use: \thispagestyle{plain}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[RO,LE]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}}
+
+
+% TIPOGRAFIA
+% ----------------------
+%\usepackage{mathpazo} % cod.: ppl / Palatino
+%\usepackage{mathptmx} % cod.: ptm / Times
+\usepackage{helvet}    % cod.: phv / Helvetica
+%\usepackage{avant}     % cod.: pag / Avant Grade
+%\usepackage{courier}   % cod.: pcr / Courier
+%\usepackage{bookman}  % cod.: pbk / Bookman
+%\usepackage{newcent}  % cod.: pnc / New Century
+%\usepackage{charter}  % cod.: bch / Charter
+%\usepackage{chancery}  % cod.: pzc / Zapf Chancery
+
+
+% TITLES
+% ----------------------
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge} %size of title/chapter
+\titlespacing*{\chapter}{0pt}{0pt}{45pt} %space between beginning and Chapter X
+
+%\usepackage{titletoc}
+
+%\usepackage{chngcntr} %to make counting chapter changes
+%\counterwithin{section}{part}
+%\renewcommand{\thepart}{\Roman{part}} %Restart counting at each chapter
+
+
+% LIST OF CONTENTS
+% ----------------------
+\usepackage{tocloft}
+
+\renewcommand\cftchapafterpnum{\vskip0.3pt} %espacio en toc
+\renewcommand\cftsecafterpnum{\vskip0.3pt}
+
+% BIBLIOGRAPHY
+% ----------------------
+\usepackage[style=ieee,sorting=none,natbib=false]{biblatex} %bibliography cited with numbers, ordered as appears in the text
+%style=numeric,bibencoding=ascii
+
+\addbibresource{references.bib} % The filename of the bibliography
+
+
+% FIGURES
+% ----------------------
+\usepackage{graphicx} % Include figures files
+\usepackage{graphics}
+\usepackage{caption} %for naming tables, figures
+%\usepackage{subcaption} %for naming figures inside a figure environment
+\usepackage{mwe} 
+\usepackage{scalerel} %for scaling inline figures, to have the same height as the text
+\usepackage{float} % para que las figuras se coloquen donde queramos
+\usepackage{subfig} % use for side-by-side figures
+\graphicspath{{Figures/}} % Indica a LateX donde esta la carpeta de las figuras
+%\usepackage{chngcntr} %for numbering figures with chapter
+%\newcounter{figure}[chapters]
+%\counterwithin{figure}{chapters}
+%\counterwithin{table}{section}
+
+%\begin{figure}[h]  % "h" es para fijar a figura en la posición definida.
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{Nombre del archivo}
+%	\caption{Título de la figura} % Título debajo de la fotografia
+%	\label{Nombre para referenciar la figura}
+%\end{figure}
+
+
+% TABLES
+% ----------------------
+\usepackage{tabularx}
+\usepackage{multirow} %to make text occupy 2 lines in a table
+% \multirow{number rows}{width}{text}
+
+% LISTS
+% ----------------------
+\usepackage{enumerate} % numerar listas
+%\begin{itemize}
+%	\item 
+%\end{itemize}
+\usepackage{enumitem} %tochange propoerties of enumerate/itemize
+
+
+% NOTES IN THE TEXT / MISSING FIGURES WARNINGS
+% ----------------------
+\usepackage[colorinlistoftodos,textsize=scriptsize,textwidth=1.8cm]{todonotes}
+%\listoftodos 
+%\todo[options]{todo text}
+%\missingfigure{Make a sketch of the structure.}
+
+% EXTRAS
+% ----------------------
+\usepackage{blindtext} % para agregar texto aleatorio de relleno
+%\usepackage{ragged2e} % alinea texto a la izquierda
+\usepackage{eqparbox}% to make text occupy the same amount of horizontal space on the page
+%\usepackage{blindtext} % para agregar texto aleatorio de relleno
+
+\usepackage{emptypage}
+
+\usepackage{multicol} %multiple columns text
+
+% COLOURS
+% ----------------------
+\usepackage{color} % paquete para utilizar colores en el documento
+
+%\definecolor{MUcolor}{rgb}{0.02,0.86,1.05}
+\definecolor{MUcolor}{cmyk}{0.97,0.30,0.41,0}
+%\definecolor{MUcolor}{cmyk}{0.981,0.181,0,0.588}
+%\definecolor{naranja}{rgb}{1,0.5,0}
+%\definecolor{naranja}{cmyk}{0,0.5,1,0}
+%\definecolor{nombre}{gray, rgb o cmyk}{descripción}
+
+%\textcolor[rgb]{1,0,0}{Rojo}\\
+%\textcolor[rgb]{1,1,0}{Amarillo}\\
+%\textcolor[rgb]{0.2,0.5,0.7}{Azulado}\\
+%\textcolor[cmyk]{0,1,0,0}{Magenta}\\
+%\textcolor[cmyk]{1,0,1,0}{Verde}\\
+%\textcolor[gray]{0.3}{Gris Oscuro}\\
+%\textcolor[gray]{0.8}{Gris Claro}\\
+
+
+
+
+% HYPERLINKS
+% ----------------------
+%\usepackage[colorlinks=true, allcolors=black]{hyperref} %if you want all the links to be black
+\usepackage[pdftex=true,colorlinks=true,plainpages=false]{hyperref} 
+\usepackage{hyperref} %ALWAYS THE LAST PACKAGE TO UPLOAD!!
+\hypersetup{
+	hidelinks, % para quitar las cajsa rojas y azules de las referencias
+	backref=true,
+	pagebackref=true,
+	hyperindex=true,
+	breaklinks=true,
+	colorlinks=true,
+	linkcolor=MUcolor,
+	citecolor=MUcolor,
+	urlcolor=blue,
+	bookmarks=true,
+	bookmarksopen=false,
+	backref=page} % link con la pagina donde cada referencia es citada
+	
